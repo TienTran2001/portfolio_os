@@ -27,7 +27,6 @@ const setupTextHover = (container: HTMLElement, type: 'title' | 'subtitle') => {
   if (!container) return;
 
   const letters = container.querySelectorAll('span');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { min, max, default: base } = FRONT_WEIGHTS[type];
 
   const animateLetter = (
