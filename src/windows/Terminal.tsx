@@ -1,9 +1,16 @@
+'use client';
+
 import WindowController from '#components/WindowController';
 import { techStack } from '#constants/index';
 import WindowWrapper from '#hoc/WindowWrapper';
 import { Check, Flag } from 'lucide-react';
 
+// tính 1 lần khi module được load (client)
+const RENDER_TIME = Math.floor(performance.now() % 100);
+
 const Terminal = () => {
+  const totalStacks = techStack.length;
+
   return (
     <>
       <div id="window-header">
@@ -41,12 +48,13 @@ const Terminal = () => {
 
         <div className="footnote">
           <p>
-            <Check size={20} /> 5 of 5 stacks loaded successfully (100%)
+            <Check size={20} /> {totalStacks} of {totalStacks} stacks loaded
+            successfully (100%)
           </p>
 
-          <p className="text-black">
+          <p className="text-black flex items-center gap-1">
             <Flag size={15} fill="black" />
-            Render time: 6ms
+            Render time: {RENDER_TIME}ms
           </p>
         </div>
       </div>
