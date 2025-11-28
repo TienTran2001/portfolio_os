@@ -20,7 +20,6 @@ const WindowWrapper = (
       const el = ref.current;
 
       if (!el || !isOpen) return;
-      el.style.display = 'none';
 
       gsap.fromTo(
         el,
@@ -28,6 +27,7 @@ const WindowWrapper = (
           scale: 0.8,
           opacity: 0,
           y: 40,
+          display: 'block',
         },
         {
           scale: 1,
