@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { dockApps } from '#constants/index';
+import { dockApps, WINDOW_CONFIG } from '#constants/index';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import { Tooltip } from 'react-tooltip';
@@ -59,7 +59,10 @@ const Dock = () => {
     };
   }, []);
 
-  const toggleApp = (app: { id: keyof typeof windows; canOpen: boolean }) => {
+  const toggleApp = (app: {
+    id: keyof typeof WINDOW_CONFIG;
+    canOpen: boolean;
+  }) => {
     if (!app.canOpen) return;
 
     const window = windows[app.id];
@@ -90,7 +93,9 @@ const Dock = () => {
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
-              onClick={() => toggleApp({ id, canOpen })}
+              onClick={() =>
+                toggleApp({ id: id as keyof typeof WINDOW_CONFIG, canOpen })
+              }
             >
               <img
                 src={`/images/${icon}`}
