@@ -14,7 +14,7 @@ type WindowsState = Record<WindowKey, WindowState>;
 interface WindowStore {
   windows: WindowsState;
   nextZIndex: number;
-  openWindow: (windowKey: WindowKey, data?: any) => void;
+  openWindow: (windowKey: WindowKey | string, data?: any) => void;
   closeWindow: (windowKey: WindowKey) => void;
   focusWindow: (windowKey: WindowKey, data?: any) => void;
 }
@@ -26,7 +26,7 @@ const useWindowStore = create<WindowStore>()(
 
     openWindow: (windowKey, data = null) =>
       set((state) => {
-        const win = state.windows[windowKey];
+        const win = state.windows[windowKey as WindowKey];
 
         if (!win) return;
         win.isOpen = true;
