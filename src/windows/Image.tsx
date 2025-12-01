@@ -4,7 +4,7 @@ import useWindowStore from '#store/window';
 
 const Image = () => {
   const { windows } = useWindowStore();
-  const data = windows.imgfile.data;
+  const data = windows.imgfile?.data;
 
   if (!data) return null;
 

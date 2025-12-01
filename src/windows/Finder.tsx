@@ -11,13 +11,14 @@ const Finder = () => {
   const { activeLocation, setActiveLocation } = useLocationStore();
 
   const openItem = (item: LocationType) => {
-    console.log(item);
     if (item.fileType === 'pdf') return openWindow('resume');
     if (item.kind === 'folder') return setActiveLocation(item);
     if (['fig', 'url'].includes(item.fileType as string) && item.href)
       return window.open(item.href, '_blank');
 
-    openWindow(`${item.fileType}${item.kind}`, item);
+    if (item.fileType) {
+      openWindow(`${item.fileType}${item.kind}`, item);
+    }
   };
 
   const renderList = (name: string, items: LocationType[]) => (
