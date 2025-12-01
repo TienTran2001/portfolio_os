@@ -23,7 +23,7 @@ const Text = () => {
             <img
               src={image}
               alt={name}
-              className="w-full max-w-md mx-auto rounded-lg"
+              className="w-full max-w-lg mx-auto rounded-lg"
             />
           </div>
         )}
