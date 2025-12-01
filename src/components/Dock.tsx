@@ -6,7 +6,7 @@ import { Tooltip } from 'react-tooltip';
 import useWindowStore from '#store/window';
 
 const Dock = () => {
-  const { windows, openWindow, closeWindow, focusWindow } = useWindowStore();
+  const { windows, openWindow, closeWindow } = useWindowStore();
 
   const dockRef = useRef<HTMLDivElement>(null);
 

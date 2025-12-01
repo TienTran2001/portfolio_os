@@ -15,6 +15,7 @@ const Navbar = () => {
             <li
               key={id}
               onClick={() => openWindow(type as keyof typeof WINDOW_CONFIG)}
+              className="cursor-pointer"
             >
               {name}
             </li>
